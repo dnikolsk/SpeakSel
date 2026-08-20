@@ -1,0 +1,494 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8F0A01A2B3C4D5E6F7000201 /* SpeakSelApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F7000101 /* SpeakSelApp.swift */; };
+		8F0A01A2B3C4D5E6F7000202 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F7000102 /* AppModel.swift */; };
+		8F0A01A2B3C4D5E6F7000203 /* SelectionCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F7000103 /* SelectionCapture.swift */; };
+		8F0A01A2B3C4D5E6F7000204 /* HotkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F7000104 /* HotkeyManager.swift */; };
+		8F0A01A2B3C4D5E6F7000205 /* HotkeyCombo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F7000105 /* HotkeyCombo.swift */; };
+		8F0A01A2B3C4D5E6F7000206 /* ElevenLabsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F7000106 /* ElevenLabsClient.swift */; };
+		8F0A01A2B3C4D5E6F7000207 /* SpeechPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F7000107 /* SpeechPlayer.swift */; };
+		8F0A01A2B3C4D5E6F7000208 /* KeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F7000108 /* KeychainStore.swift */; };
+		8F0A01A2B3C4D5E6F7000209 /* SettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F7000109 /* SettingsStore.swift */; };
+		8F0A01A2B3C4D5E6F700020A /* TextChunker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F700010A /* TextChunker.swift */; };
+		8F0A01A2B3C4D5E6F700020B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F700010B /* SettingsView.swift */; };
+		8F0A01A2B3C4D5E6F700020C /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F700010C /* HUD.swift */; };
+		8F0A01A2B3C4D5E6F700020D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F700010D /* Assets.xcassets */; };
+		8F0A01A2B3C4D5E6F7000210 /* TextChunkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F700010F /* TextChunkerTests.swift */; };
+		8F0A01A2B3C4D5E6F7000211 /* HotkeyComboTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F7000110 /* HotkeyComboTests.swift */; };
+		8F0A01A2B3C4D5E6F7000212 /* ElevenLabsClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0A01A2B3C4D5E6F7000111 /* ElevenLabsClientTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8F0A01A2B3C4D5E6F700001A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F0A01A2B3C4D5E6F7000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F0A01A2B3C4D5E6F7000002;
+			remoteInfo = SpeakSel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8F0A01A2B3C4D5E6F7000004 /* SpeakSel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeakSel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F0A01A2B3C4D5E6F7000005 /* SpeakSelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpeakSelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F0A01A2B3C4D5E6F7000101 /* SpeakSelApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeakSelApp.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F7000102 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F7000103 /* SelectionCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCapture.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F7000104 /* HotkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyManager.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F7000105 /* HotkeyCombo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyCombo.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F7000106 /* ElevenLabsClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenLabsClient.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F7000107 /* SpeechPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechPlayer.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F7000108 /* KeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStore.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F7000109 /* SettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStore.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F700010A /* TextChunker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChunker.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F700010B /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F700010C /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F700010D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F700010E /* SpeakSel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpeakSel.entitlements; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F700010F /* TextChunkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextChunkerTests.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F7000110 /* HotkeyComboTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotkeyComboTests.swift; sourceTree = "<group>"; };
+		8F0A01A2B3C4D5E6F7000111 /* ElevenLabsClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevenLabsClientTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8F0A01A2B3C4D5E6F7000007 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F0A01A2B3C4D5E6F700000A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8F0A01A2B3C4D5E6F700000B = {
+			isa = PBXGroup;
+			children = (
+				8F0A01A2B3C4D5E6F700000C /* SpeakSel */,
+				8F0A01A2B3C4D5E6F700000D /* SpeakSelTests */,
+				8F0A01A2B3C4D5E6F700000E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8F0A01A2B3C4D5E6F700000C /* SpeakSel */ = {
+			isa = PBXGroup;
+			children = (
+				8F0A01A2B3C4D5E6F7000101 /* SpeakSelApp.swift */,
+				8F0A01A2B3C4D5E6F7000102 /* AppModel.swift */,
+				8F0A01A2B3C4D5E6F7000103 /* SelectionCapture.swift */,
+				8F0A01A2B3C4D5E6F7000104 /* HotkeyManager.swift */,
+				8F0A01A2B3C4D5E6F7000105 /* HotkeyCombo.swift */,
+				8F0A01A2B3C4D5E6F7000106 /* ElevenLabsClient.swift */,
+				8F0A01A2B3C4D5E6F7000107 /* SpeechPlayer.swift */,
+				8F0A01A2B3C4D5E6F7000108 /* KeychainStore.swift */,
+				8F0A01A2B3C4D5E6F7000109 /* SettingsStore.swift */,
+				8F0A01A2B3C4D5E6F700010A /* TextChunker.swift */,
+				8F0A01A2B3C4D5E6F700010B /* SettingsView.swift */,
+				8F0A01A2B3C4D5E6F700010C /* HUD.swift */,
+				8F0A01A2B3C4D5E6F700010D /* Assets.xcassets */,
+				8F0A01A2B3C4D5E6F700010E /* SpeakSel.entitlements */,
+			);
+			path = SpeakSel;
+			sourceTree = "<group>";
+		};
+		8F0A01A2B3C4D5E6F700000D /* SpeakSelTests */ = {
+			isa = PBXGroup;
+			children = (
+				8F0A01A2B3C4D5E6F700010F /* TextChunkerTests.swift */,
+				8F0A01A2B3C4D5E6F7000110 /* HotkeyComboTests.swift */,
+				8F0A01A2B3C4D5E6F7000111 /* ElevenLabsClientTests.swift */,
+			);
+			path = SpeakSelTests;
+			sourceTree = "<group>";
+		};
+		8F0A01A2B3C4D5E6F700000E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8F0A01A2B3C4D5E6F7000004 /* SpeakSel.app */,
+				8F0A01A2B3C4D5E6F7000005 /* SpeakSelTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8F0A01A2B3C4D5E6F7000002 /* SpeakSel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F0A01A2B3C4D5E6F7000010 /* Build configuration list for PBXNativeTarget "SpeakSel" */;
+			buildPhases = (
+				8F0A01A2B3C4D5E6F7000006 /* Sources */,
+				8F0A01A2B3C4D5E6F7000007 /* Frameworks */,
+				8F0A01A2B3C4D5E6F7000008 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpeakSel;
+			productName = SpeakSel;
+			productReference = 8F0A01A2B3C4D5E6F7000004 /* SpeakSel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8F0A01A2B3C4D5E6F7000003 /* SpeakSelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F0A01A2B3C4D5E6F7000011 /* Build configuration list for PBXNativeTarget "SpeakSelTests" */;
+			buildPhases = (
+				8F0A01A2B3C4D5E6F7000009 /* Sources */,
+				8F0A01A2B3C4D5E6F700000A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F0A01A2B3C4D5E6F7000019 /* PBXTargetDependency */,
+			);
+			name = SpeakSelTests;
+			productName = SpeakSelTests;
+			productReference = 8F0A01A2B3C4D5E6F7000005 /* SpeakSelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8F0A01A2B3C4D5E6F7000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					8F0A01A2B3C4D5E6F7000002 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					8F0A01A2B3C4D5E6F7000003 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 8F0A01A2B3C4D5E6F7000002;
+					};
+				};
+			};
+			buildConfigurationList = 8F0A01A2B3C4D5E6F700000F /* Build configuration list for PBXProject "SpeakSel" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8F0A01A2B3C4D5E6F700000B;
+			productRefGroup = 8F0A01A2B3C4D5E6F700000E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8F0A01A2B3C4D5E6F7000002 /* SpeakSel */,
+				8F0A01A2B3C4D5E6F7000003 /* SpeakSelTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8F0A01A2B3C4D5E6F7000008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F0A01A2B3C4D5E6F700020D /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8F0A01A2B3C4D5E6F7000006 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F0A01A2B3C4D5E6F7000201 /* SpeakSelApp.swift in Sources */,
+				8F0A01A2B3C4D5E6F7000202 /* AppModel.swift in Sources */,
+				8F0A01A2B3C4D5E6F7000203 /* SelectionCapture.swift in Sources */,
+				8F0A01A2B3C4D5E6F7000204 /* HotkeyManager.swift in Sources */,
+				8F0A01A2B3C4D5E6F7000205 /* HotkeyCombo.swift in Sources */,
+				8F0A01A2B3C4D5E6F7000206 /* ElevenLabsClient.swift in Sources */,
+				8F0A01A2B3C4D5E6F7000207 /* SpeechPlayer.swift in Sources */,
+				8F0A01A2B3C4D5E6F7000208 /* KeychainStore.swift in Sources */,
+				8F0A01A2B3C4D5E6F7000209 /* SettingsStore.swift in Sources */,
+				8F0A01A2B3C4D5E6F700020A /* TextChunker.swift in Sources */,
+				8F0A01A2B3C4D5E6F700020B /* SettingsView.swift in Sources */,
+				8F0A01A2B3C4D5E6F700020C /* HUD.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F0A01A2B3C4D5E6F7000009 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F0A01A2B3C4D5E6F7000210 /* TextChunkerTests.swift in Sources */,
+				8F0A01A2B3C4D5E6F7000211 /* HotkeyComboTests.swift in Sources */,
+				8F0A01A2B3C4D5E6F7000212 /* ElevenLabsClientTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8F0A01A2B3C4D5E6F7000019 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F0A01A2B3C4D5E6F7000002 /* SpeakSel */;
+			targetProxy = 8F0A01A2B3C4D5E6F700001A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		8F0A01A2B3C4D5E6F7000012 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8F0A01A2B3C4D5E6F7000013 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8F0A01A2B3C4D5E6F7000014 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SpeakSel/SpeakSel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SpeakSel;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAccessibilityUsageDescription = "SpeakSel needs Accessibility access to read highlighted text in Terminal, browsers, and other apps.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.speaksel.SpeakSel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8F0A01A2B3C4D5E6F7000015 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SpeakSel/SpeakSel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = SpeakSel;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSAccessibilityUsageDescription = "SpeakSel needs Accessibility access to read highlighted text in Terminal, browsers, and other apps.";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.speaksel.SpeakSel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_STRICT_CONCURRENCY = targeted;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8F0A01A2B3C4D5E6F7000016 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.speaksel.SpeakSelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpeakSel.app/Contents/MacOS/SpeakSel";
+			};
+			name = Debug;
+		};
+		8F0A01A2B3C4D5E6F7000017 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.speaksel.SpeakSelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SpeakSel.app/Contents/MacOS/SpeakSel";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8F0A01A2B3C4D5E6F700000F /* Build configuration list for PBXProject "SpeakSel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F0A01A2B3C4D5E6F7000012 /* Debug */,
+				8F0A01A2B3C4D5E6F7000013 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F0A01A2B3C4D5E6F7000010 /* Build configuration list for PBXNativeTarget "SpeakSel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F0A01A2B3C4D5E6F7000014 /* Debug */,
+				8F0A01A2B3C4D5E6F7000015 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F0A01A2B3C4D5E6F7000011 /* Build configuration list for PBXNativeTarget "SpeakSelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F0A01A2B3C4D5E6F7000016 /* Debug */,
+				8F0A01A2B3C4D5E6F7000017 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8F0A01A2B3C4D5E6F7000001 /* Project object */;
+}
