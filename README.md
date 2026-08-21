@@ -53,3 +53,11 @@ Xcode 15 or later.
 ```bash
 xcodebuild -scheme SpeakSel -destination 'platform=macOS' test
 ```
+
+Installable zips (the ones you drop into `/Applications`) must be **Developer ID notarized**, same identity as 1.0.1. That is what keeps Gatekeeper quiet and keeps Accessibility granted across updates. Ad-hoc CI zips will look like a new app to macOS.
+
+```bash
+scripts/release.sh
+```
+
+See [docs/releasing.md](docs/releasing.md) for the notary profile and GitHub Actions secrets.
