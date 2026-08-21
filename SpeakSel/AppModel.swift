@@ -55,9 +55,6 @@ final class AppModel: ObservableObject {
         apiKeyDraft = KeychainStore.load() ?? ""
         voices = settings.cachedVoices()
         refreshAccessibility()
-        if !accessibilityTrusted {
-            AccessibilitySupport.requestTrust()
-        }
         HotkeyManager.shared.onSpeak = { [weak self] in
             Task { @MainActor in
                 self?.handleHotkey()
@@ -83,6 +80,10 @@ final class AppModel: ObservableObject {
 
         if !hasAPIKey || !accessibilityTrusted {
             openSettings()
+            if !accessibilityTrusted {
+                AccessibilitySupport.requestTrust()
+                AccessibilitySupport.openSystemSettings()
+            }
         }
     }
 
@@ -258,6 +259,9 @@ final class AppModel: ObservableObject {
     }
 
     func requestAccessibility() {
+        // Accessory (no Dock icon) apps otherwise fail to show the TCC prompt.
+        NSApp.setActivationPolicy(.regular)
+        NSApp.activate(ignoringOtherApps: true)
         AccessibilitySupport.requestTrust()
         AccessibilitySupport.openSystemSettings()
         refreshAccessibility()

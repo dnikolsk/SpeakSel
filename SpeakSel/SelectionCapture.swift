@@ -167,13 +167,15 @@ enum AccessibilitySupport {
     static func openSystemSettings() {
         let urls = [
             "x-apple.systempreferences:com.apple.settings.PrivacySecurity.extension?Privacy_Accessibility",
-            "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility"
+            "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility",
+            "x-apple.systempreferences:com.apple.settings.PrivacySecurity?Privacy_Accessibility"
         ]
         for string in urls {
             if let url = URL(string: string), NSWorkspace.shared.open(url) {
                 return
             }
         }
+        NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Applications/System Settings.app"))
     }
 
     static func focusedElementIsSecureField() -> Bool {
