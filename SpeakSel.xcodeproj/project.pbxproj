@@ -375,6 +375,7 @@
 		8F0A01A2B3C4D5E6F7000014 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SpeakSel/SpeakSel.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -407,6 +408,7 @@
 		8F0A01A2B3C4D5E6F7000015 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SpeakSel/SpeakSel.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";

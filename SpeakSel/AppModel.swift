@@ -36,10 +36,8 @@ final class AppModel: ObservableObject {
             .store(in: &cancellables)
     }
 
-    var menuBarSymbol: String {
-        if isSpeaking || isSynthesizing { return "speaker.wave.2.fill" }
-        if !hasAPIKey || !accessibilityTrusted { return "speaker.slash" }
-        return "speaker.wave.2"
+    var menuBarShowsSlash: Bool {
+        !hasAPIKey || !accessibilityTrusted
     }
 
     var hasAPIKey: Bool {

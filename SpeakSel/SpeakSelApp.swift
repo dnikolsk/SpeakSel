@@ -22,7 +22,12 @@ struct SpeakSelApp: App {
                 model.quit()
             }
         } label: {
-            Image(systemName: model.menuBarSymbol)
+            if model.menuBarShowsSlash {
+                Image(systemName: "speaker.slash")
+            } else {
+                Image("MenuBarIcon")
+                    .renderingMode(.template)
+            }
         }
         .menuBarExtraStyle(.menu)
     }
