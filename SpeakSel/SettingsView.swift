@@ -59,12 +59,20 @@ struct SettingsView: View {
                 }
             }
 
-            Section("Hotkey") {
-                HotkeyRecorder(combo: $model.settings.hotkey)
-                    .onChange(of: model.settings.hotkey) { _, _ in
-                        model.registerHotkey()
-                    }
-                Text("Select text in any app, then press \(model.settings.hotkey.displayString). Press again to stop.")
+            Section("Hotkeys") {
+                LabeledContent("Speak") {
+                    HotkeyRecorder(combo: $model.settings.hotkey)
+                }
+                .onChange(of: model.settings.hotkey) { _, _ in
+                    model.registerHotkey()
+                }
+                LabeledContent("Stop") {
+                    HotkeyRecorder(combo: $model.settings.stopHotkey)
+                }
+                .onChange(of: model.settings.stopHotkey) { _, _ in
+                    model.registerHotkey()
+                }
+                Text("Select text, then press \(model.settings.hotkey.displayString) to read. Press \(model.settings.stopHotkey.displayString) to stop. The speak key also stops if something is already playing.")
                     .foregroundStyle(.secondary)
                     .font(.callout)
             }

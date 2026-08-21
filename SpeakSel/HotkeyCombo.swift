@@ -23,6 +23,11 @@ struct HotkeyCombo: Equatable, Codable, Hashable {
         carbonModifiers: CarbonHotkey.control | CarbonHotkey.option
     )
 
+    static let defaultStop = HotkeyCombo(
+        keyCode: CarbonHotkey.keyANSI_S,
+        carbonModifiers: CarbonHotkey.control | CarbonHotkey.option
+    )
+
     var displayString: String {
         var parts: [String] = []
         if carbonModifiers & CarbonHotkey.control != 0 { parts.append("⌃") }

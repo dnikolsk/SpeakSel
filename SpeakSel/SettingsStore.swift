@@ -9,6 +9,8 @@ final class SettingsStore: ObservableObject {
         static let speed = "speaksel.speed"
         static let hotkeyKeyCode = "speaksel.hotkeyKeyCode"
         static let hotkeyModifiers = "speaksel.hotkeyModifiers"
+        static let stopHotkeyKeyCode = "speaksel.stopHotkeyKeyCode"
+        static let stopHotkeyModifiers = "speaksel.stopHotkeyModifiers"
         static let launchAtLogin = "speaksel.launchAtLogin"
         static let cachedVoices = "speaksel.cachedVoices"
     }
@@ -36,6 +38,13 @@ final class SettingsStore: ObservableObject {
         }
     }
 
+    @Published var stopHotkey: HotkeyCombo {
+        didSet {
+            UserDefaults.standard.set(Int(stopHotkey.keyCode), forKey: Keys.stopHotkeyKeyCode)
+            UserDefaults.standard.set(Int(stopHotkey.carbonModifiers), forKey: Keys.stopHotkeyModifiers)
+        }
+    }
+
     @Published var launchAtLogin: Bool {
         didSet { UserDefaults.standard.set(launchAtLogin, forKey: Keys.launchAtLogin) }
     }
@@ -57,6 +66,14 @@ final class SettingsStore: ObservableObject {
             )
         } else {
             hotkey = .default
+        }
+        if defaults.object(forKey: Keys.stopHotkeyKeyCode) != nil {
+            stopHotkey = HotkeyCombo(
+                keyCode: UInt32(defaults.integer(forKey: Keys.stopHotkeyKeyCode)),
+                carbonModifiers: UInt32(defaults.integer(forKey: Keys.stopHotkeyModifiers))
+            )
+        } else {
+            stopHotkey = .defaultStop
         }
         launchAtLogin = defaults.bool(forKey: Keys.launchAtLogin)
     }

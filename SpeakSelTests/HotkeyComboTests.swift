@@ -7,6 +7,12 @@ final class HotkeyComboTests: XCTestCase {
         XCTAssertTrue(HotkeyCombo.default.hasModifier)
     }
 
+    func testDefaultStopDisplayString() {
+        XCTAssertEqual(HotkeyCombo.defaultStop.displayString, "⌃⌥S")
+        XCTAssertTrue(HotkeyCombo.defaultStop.hasModifier)
+        XCTAssertNotEqual(HotkeyCombo.defaultStop, HotkeyCombo.default)
+    }
+
     func testModifierOrderAndKeyNames() {
         let combo = HotkeyCombo(
             keyCode: CarbonHotkey.keySpace,

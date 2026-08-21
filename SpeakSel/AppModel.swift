@@ -14,7 +14,7 @@ final class AppModel: ObservableObject {
     @Published var isSynthesizing = false
     @Published var accessibilityTrusted = false
     @Published var apiKeyDraft = ""
-    @Published var statusText = "Select text, then press the hotkey."
+    @Published var statusText = "Select text, then press the speak hotkey."
     @Published var isLoadingVoices = false
     @Published var voicesError: String?
 
@@ -58,9 +58,14 @@ final class AppModel: ObservableObject {
         if !accessibilityTrusted {
             AccessibilitySupport.requestTrust()
         }
-        HotkeyManager.shared.onPress = { [weak self] in
+        HotkeyManager.shared.onSpeak = { [weak self] in
             Task { @MainActor in
                 self?.handleHotkey()
+            }
+        }
+        HotkeyManager.shared.onStop = { [weak self] in
+            Task { @MainActor in
+                self?.handleStopHotkey()
             }
         }
         registerHotkey()
@@ -87,6 +92,11 @@ final class AppModel: ObservableObject {
             return
         }
         speakSelection()
+    }
+
+    func handleStopHotkey() {
+        guard isSpeaking || isSynthesizing else { return }
+        stopSpeaking()
     }
 
     func speakSelection() {
@@ -140,8 +150,8 @@ final class AppModel: ObservableObject {
                     guard self.speakGeneration == generation else { return }
                     self.isSynthesizing = false
                     self.isSpeaking = false
-                    if self.statusText == "Reading…" {
-                        self.statusText = "Select text, then press the hotkey."
+                    if self.statusText == "Reading…" || self.statusText.hasPrefix("Reading ") {
+                        self.statusText = "Select text, then press the speak hotkey."
                     }
                 }
             }
@@ -240,7 +250,7 @@ final class AppModel: ObservableObject {
     }
 
     func registerHotkey() {
-        HotkeyManager.shared.register(settings.hotkey)
+        HotkeyManager.shared.register(speak: settings.hotkey, stop: settings.stopHotkey)
     }
 
     func refreshAccessibility() {

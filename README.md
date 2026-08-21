@@ -2,7 +2,7 @@
 
 A macOS menu-bar app: **highlight text in any app, press a hotkey, hear it in an ElevenLabs voice.**
 
-Works in Terminal, browsers, Slack, Xcode, and other apps. Select text, press **⌃⌥R** (Control-Option-R). Press the same hotkey again to stop.
+Works in Terminal, browsers, Slack, Xcode, and other apps. Select text, press **⌃⌥R** (Control-Option-R) to read. Press **⌃⌥S** (Control-Option-S) to stop. The speak hotkey also stops if something is already playing.
 
 ## Requirements
 
@@ -31,8 +31,8 @@ Works in Terminal, browsers, Slack, Xcode, and other apps. Select text, press **
 | Action | How |
 | --- | --- |
 | Read the current selection | Highlight text, press **⌃⌥R** |
-| Stop | Press **⌃⌥R** again, or **Stop** in the menu |
-| Change the hotkey | Settings → Change, then press a shortcut that includes a modifier |
+| Stop | Press **⌃⌥S**, or **⌃⌥R** again, or **Stop** in the menu |
+| Change the hotkeys | Settings → Speak or Stop → Change, then press a shortcut that includes a modifier |
 | Change voice / speed / model | Settings. Flash is fastest; Multilingual v2 is highest quality |
 
 Long selections are split on sentence boundaries so playback can start before the whole article is synthesized.
