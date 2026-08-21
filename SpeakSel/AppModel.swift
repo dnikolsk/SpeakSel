@@ -23,6 +23,7 @@ final class AppModel: ObservableObject {
     private var speakTask: Task<Void, Never>?
     private var speakGeneration = 0
     private var settingsController: NSWindowController?
+    private var settingsWindowDelegate = SettingsWindowDelegate()
     private var accessibilityTimer: Timer?
     private var started = false
     private var cancellables = Set<AnyCancellable>()
@@ -56,6 +57,9 @@ final class AppModel: ObservableObject {
         apiKeyDraft = KeychainStore.load() ?? ""
         voices = settings.cachedVoices()
         refreshAccessibility()
+        if !accessibilityTrusted {
+            AccessibilitySupport.requestTrust()
+        }
         HotkeyManager.shared.onPress = { [weak self] in
             Task { @MainActor in
                 self?.handleHotkey()
@@ -267,8 +271,11 @@ final class AppModel: ObservableObject {
     }
 
     func openSettings() {
+        // Accessory apps otherwise fail to order a window in front of Terminal/Xcode.
+        NSApp.setActivationPolicy(.regular)
         NSApp.activate(ignoringOtherApps: true)
         if let window = settingsController?.window {
+            window.collectionBehavior = [.moveToActiveSpace, .fullScreenAuxiliary]
             window.makeKeyAndOrderFront(nil)
             return
         }
@@ -282,9 +289,12 @@ final class AppModel: ObservableObject {
         window.setContentSize(NSSize(width: 460, height: 620))
         window.center()
         window.isReleasedWhenClosed = false
+        window.collectionBehavior = [.moveToActiveSpace, .fullScreenAuxiliary]
+        window.delegate = settingsWindowDelegate
         let controller = NSWindowController(window: window)
         settingsController = controller
         controller.showWindow(nil)
+        window.makeKeyAndOrderFront(nil)
     }
 
     func quit() {
@@ -293,5 +303,11 @@ final class AppModel: ObservableObject {
         stopSpeaking()
         HotkeyManager.shared.unregister()
         NSApp.terminate(nil)
+    }
+}
+
+private final class SettingsWindowDelegate: NSObject, NSWindowDelegate {
+    func windowWillClose(_ notification: Notification) {
+        NSApp.setActivationPolicy(.accessory)
     }
 }

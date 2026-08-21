@@ -16,7 +16,7 @@ final class HotkeyManager {
         unregister()
         guard combo.hasModifier else { return }
 
-        var hotKeyID = EventHotKeyID(signature: signature, id: 1)
+        let hotKeyID = EventHotKeyID(signature: signature, id: 1)
         let status = RegisterEventHotKey(
             combo.keyCode,
             combo.carbonModifiers,

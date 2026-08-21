@@ -185,13 +185,23 @@ enum AccessibilitySupport {
             &focused
         )
         guard status == .success, let focused else { return false }
-        var role: CFTypeRef?
-        let roleStatus = AXUIElementCopyAttributeValue(
-            focused as! AXUIElement,
-            kAXRoleAttribute as CFString,
-            &role
-        )
-        guard roleStatus == .success, let roleName = role as? String else { return false }
-        return roleName == kAXSecureTextFieldRole as String
+        let element = focused as! AXUIElement
+        let role = stringAttribute(kAXRoleAttribute as String, of: element)
+        let subrole = stringAttribute(kAXSubroleAttribute as String, of: element)
+        return isSecureField(role: role, subrole: subrole)
+    }
+
+    /// Password fields are `AXTextField` with subrole `AXSecureTextField`.
+    /// Some web views still report the secure name as the role.
+    static func isSecureField(role: String?, subrole: String?) -> Bool {
+        let secure = kAXSecureTextFieldSubrole as String
+        return role == secure || subrole == secure
+    }
+
+    private static func stringAttribute(_ name: String, of element: AXUIElement) -> String? {
+        var value: CFTypeRef?
+        let status = AXUIElementCopyAttributeValue(element, name as CFString, &value)
+        guard status == .success else { return nil }
+        return value as? String
     }
 }
