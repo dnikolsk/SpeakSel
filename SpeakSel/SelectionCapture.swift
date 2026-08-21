@@ -462,13 +462,33 @@ struct PasteboardSnapshot {
     }
 }
 
+enum AppIdentity {
+    static var bundlePath: String {
+        Bundle.main.bundleURL.resolvingSymlinksInPath().path
+    }
+
+    static var isTranslocated: Bool {
+        isTranslocated(path: bundlePath)
+    }
+
+    static func isTranslocated(path: String) -> Bool {
+        path.contains("/AppTranslocation/")
+    }
+
+    /// The Accessibility switch is bound to a code signature, not the app name.
+    /// An old Developer ID row can stay on while this ad-hoc CI build is not trusted.
+    static func permissionMismatchHint(runningPath: String, translocated: Bool) -> String {
+        if translocated {
+            return "macOS is running a quarantined copy, not /Applications/SpeakSel.app. In Terminal run: xattr -cr /Applications/SpeakSel.app — then quit SpeakSel from the menu bar and open the Applications copy."
+        }
+        return "If SpeakSel is already on in the list, that row belongs to an older signed copy. macOS treats this build as a different app. Remove every SpeakSel row, click +, choose \(runningPath), turn it on, then quit SpeakSel from the menu bar and open it again."
+    }
+}
+
 enum AccessibilitySupport {
     static func isTrusted(prompt: Bool) -> Bool {
-        if prompt {
-            let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary
-            return AXIsProcessTrustedWithOptions(options)
-        }
-        return AXIsProcessTrusted()
+        let options = [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: prompt] as CFDictionary
+        return AXIsProcessTrustedWithOptions(options)
     }
 
     static func requestTrust() {

@@ -93,6 +93,28 @@ final class SelectionCaptureTests: XCTestCase {
         )
     }
 
+    func testTranslocatedPathDetection() {
+        XCTAssertTrue(AppIdentity.isTranslocated(path: "/private/var/folders/xx/AppTranslocation/ABC/d/SpeakSel.app"))
+        XCTAssertFalse(AppIdentity.isTranslocated(path: "/Applications/SpeakSel.app"))
+    }
+
+    func testPermissionHintForStaleAccessibilityRow() {
+        let hint = AppIdentity.permissionMismatchHint(
+            runningPath: "/Applications/SpeakSel.app",
+            translocated: false
+        )
+        XCTAssertTrue(hint.contains("/Applications/SpeakSel.app"))
+        XCTAssertTrue(hint.contains("older signed copy"))
+    }
+
+    func testPermissionHintForQuarantinedCopy() {
+        let hint = AppIdentity.permissionMismatchHint(
+            runningPath: "/private/var/folders/xx/AppTranslocation/ABC/d/SpeakSel.app",
+            translocated: true
+        )
+        XCTAssertTrue(hint.contains("xattr -cr"))
+    }
+
     func testCopyOnSelectExpiresAfterRecencyWindow() {
         let now = Date()
         let mouseUp = now.addingTimeInterval(-60)

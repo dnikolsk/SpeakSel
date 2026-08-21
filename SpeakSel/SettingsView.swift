@@ -85,9 +85,25 @@ struct SettingsView: View {
                 Button("Open Accessibility settings") {
                     model.requestAccessibility()
                 }
-                Text("Turn on SpeakSel in the list. If it is missing, click +, pick /Applications/SpeakSel.app, enable the switch, then quit SpeakSel from the menu bar and open it again. Ignore any extra SpeakSel rows from Xcode.")
-                    .foregroundStyle(.secondary)
+                if !model.accessibilityTrusted {
+                    Text(AppIdentity.permissionMismatchHint(
+                        runningPath: AppIdentity.bundlePath,
+                        translocated: AppIdentity.isTranslocated
+                    ))
+                    .foregroundStyle(.orange)
                     .font(.callout)
+                    Text(AppIdentity.bundlePath)
+                        .font(.caption.monospaced())
+                        .textSelection(.enabled)
+                    Button("Copy app path") {
+                        NSPasteboard.general.clearContents()
+                        NSPasteboard.general.setString(AppIdentity.bundlePath, forType: .string)
+                    }
+                } else {
+                    Text("Turn on SpeakSel in the list. If it is missing, click +, pick /Applications/SpeakSel.app, enable the switch, then quit SpeakSel from the menu bar and open it again. Ignore any extra SpeakSel rows from Xcode.")
+                        .foregroundStyle(.secondary)
+                        .font(.callout)
+                }
             }
 
             Section("General") {
