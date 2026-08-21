@@ -1,0 +1,55 @@
+name: Build SpeakSel.zip
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Test and package zip
+        run: |
+          chmod +x scripts/build-zip.sh
+          scripts/build-zip.sh
+
+      - name: Upload SpeakSel.zip
+        uses: actions/upload-artifact@v4
+        with:
+          name: SpeakSel
+          path: build/dist/SpeakSel.zip
+          if-no-files-found: error
+
+      - name: Publish prerelease
+        if: github.event_name != 'pull_request'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.2-pre
+          name: SpeakSel 1.0.2-pre
+          prerelease: true
+          make_latest: false
+          target_commitish: ${{ github.sha }}
+          files: build/dist/SpeakSel.zip
+          body: |
+            Unsigned CI build of the Claude Code selection fix. Not notarized.
+
+            1. Download **SpeakSel.zip**
+            2. Unzip and replace `/Applications/SpeakSel.app`
+            3. Right-click → **Open** the first time (Gatekeeper)
+            4. Re-enable **Accessibility** for this copy, then quit and reopen SpeakSel
+            5. Highlight in Claude Code and press Control-Option-R

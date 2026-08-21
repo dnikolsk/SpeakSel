@@ -35,6 +35,10 @@ struct SpeakSelApp: App {
 
 final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
+        // Hosted unit tests launch SpeakSel.app; don't open Settings or TCC prompts.
+        if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil {
+            return
+        }
         NSApp.setActivationPolicy(.accessory)
         AppModel.shared.start()
     }
