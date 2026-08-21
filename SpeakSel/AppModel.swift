@@ -54,6 +54,7 @@ final class AppModel: ObservableObject {
 
         apiKeyDraft = KeychainStore.load() ?? ""
         voices = settings.cachedVoices()
+        SelectionCapture.startMonitoring()
         refreshAccessibility()
         HotkeyManager.shared.onSpeak = { [weak self] in
             Task { @MainActor in

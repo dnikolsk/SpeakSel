@@ -2,7 +2,7 @@
 
 A macOS menu-bar app: **highlight text in any app, press a hotkey, hear it in an ElevenLabs voice.**
 
-Works in Terminal, browsers, Slack, Xcode, and other apps. Select text, press **⌃⌥R** (Control-Option-R) to read. Press **⌃⌥S** (Control-Option-S) to stop. The speak hotkey also stops if something is already playing.
+Works in Terminal, browsers, Slack, Xcode, Claude Code, and other apps. Select text, press **⌃⌥R** (Control-Option-R) to read. Press **⌃⌥S** (Control-Option-S) to stop. The speak hotkey also stops if something is already playing.
 
 ## Install (no Xcode)
 
@@ -31,6 +31,7 @@ Long selections are split on sentence boundaries so playback can start before th
 
 1. Accessibility `AXSelectedText` (native text views, many apps).
 2. If that is empty, SpeakSel briefly sends **⌘C**, reads the clipboard, then restores whatever was there before.
+3. In fullscreen TUIs such as **Claude Code**, a highlight is not the terminal’s native selection. Claude Code copies on mouse-up (or with **⌃⇧C**). SpeakSel uses that clipboard write, and sends **⌃⇧C** when ⌘C does nothing.
 
 Password fields are skipped.
 
