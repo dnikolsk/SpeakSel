@@ -12,6 +12,9 @@ enum CarbonHotkey {
     static let keyANSI_R: UInt32 = 0x0F
     static let keyANSI_S: UInt32 = 0x01
     static let keySpace: UInt32 = 0x31
+    static let keyCommand: UInt32 = 0x37
+    static let keyShift: UInt32 = 0x38
+    static let keyControl: UInt32 = 0x3B
 }
 
 struct HotkeyCombo: Equatable, Codable, Hashable {

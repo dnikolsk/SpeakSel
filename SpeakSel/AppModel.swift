@@ -54,6 +54,7 @@ final class AppModel: ObservableObject {
 
         apiKeyDraft = KeychainStore.load() ?? ""
         voices = settings.cachedVoices()
+        SelectionCapture.startMonitoring()
         refreshAccessibility()
         HotkeyManager.shared.onSpeak = { [weak self] in
             Task { @MainActor in
@@ -298,7 +299,7 @@ final class AppModel: ObservableObject {
         let window = NSWindow(contentViewController: hosting)
         window.title = "SpeakSel"
         window.styleMask = [.titled, .closable]
-        window.setContentSize(NSSize(width: 460, height: 620))
+        window.setContentSize(NSSize(width: 460, height: 680))
         window.center()
         window.isReleasedWhenClosed = false
         window.collectionBehavior = [.moveToActiveSpace, .fullScreenAuxiliary]
