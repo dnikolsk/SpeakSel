@@ -4,27 +4,17 @@ A macOS menu-bar app: **highlight text in any app, press a hotkey, hear it in an
 
 Works in Terminal, browsers, Slack, Xcode, and other apps. Select text, press **⌃⌥R** (Control-Option-R) to read. Press **⌃⌥S** (Control-Option-S) to stop. The speak hotkey also stops if something is already playing.
 
-## Requirements
+## Install (no Xcode)
 
-- macOS 14 Sonoma or later
-- Xcode 15 or later
-- An [ElevenLabs](https://elevenlabs.io) account and API key
+Requires macOS 14 or later.
 
-## Build and run
+1. Download **SpeakSel.zip** from the [latest GitHub release](https://github.com/dnikolsk/SpeakSel/releases/latest), or use a zip someone sent you.
+2. Unzip and drag **SpeakSel.app** into **Applications**.
+3. Open it (right-click → **Open** if macOS warns the first time).
+4. Paste an [ElevenLabs API key](https://elevenlabs.io/app/settings/api-keys) in Settings.
+5. Enable **Accessibility**: System Settings → Privacy & Security → Accessibility. If SpeakSel is missing, click **+**, choose `/Applications/SpeakSel.app`, turn the switch on, then quit SpeakSel from the menu bar and open it again. Use that Applications copy only — Xcode/DerivedData rows will not grant the installed app.
 
-1. Open `SpeakSel.xcodeproj` in Xcode on your Mac.
-2. Select the **SpeakSel** scheme and **My Mac**.
-3. In **Signing & Capabilities**, choose your Team. App Sandbox is off on purpose so SpeakSel can read selected text from other apps.
-4. Press Run. SpeakSel appears in the menu bar (speaker icon). There is no Dock icon.
-
-## First-run setup
-
-1. Paste your ElevenLabs API key into Settings. Keys are stored in the Keychain, not in the project.
-   Get one at [elevenlabs.io/app/settings/api-keys](https://elevenlabs.io/app/settings/api-keys).
-2. Grant **Accessibility** when macOS asks, or click **Open Accessibility settings** and enable SpeakSel.
-   Without this, macOS will not let the app read a selection in Terminal, Chrome, or other apps.
-   Xcode debug builds live in DerivedData, so macOS may ask you to enable SpeakSel again after a clean rebuild. That settles once you copy a Release build to `/Applications`.
-3. Click **Refresh voices**, pick a voice, then **Test voice**.
+The API key needs **text_to_speech** and **voices_read** (or an unrestricted key). There is no ElevenLabs CLI.
 
 ## Use
 
@@ -44,16 +34,21 @@ Long selections are split on sentence boundaries so playback can start before th
 
 Password fields are skipped.
 
-## Tests
-
-In Xcode: **Product → Test**, or:
-
-```bash
-xcodebuild -scheme SpeakSel -destination 'platform=macOS' test
-```
-
 ## Privacy
 
 - The API key never leaves the Keychain except as the `xi-api-key` header to `api.elevenlabs.io`.
 - Selected text is sent to ElevenLabs to generate audio. It is not stored by SpeakSel.
-- The app is not sandboxed, because a sandboxed agent cannot read other apps' selections.
+- The app is not sandboxed, because a sandboxed agent cannot read other apps' selections. It is distributed as a notarized Developer ID build, not on the Mac App Store.
+
+## Build from source
+
+Xcode 15 or later.
+
+1. Open `SpeakSel.xcodeproj`.
+2. Select the **SpeakSel** scheme and **My Mac**.
+3. Debug uses Apple Development signing. Release uses Developer ID (team `MHCFHR9BB2`) so it can be notarized. App Sandbox stays off on purpose.
+4. Run. SpeakSel appears in the menu bar (waveform extra). There is no Dock icon.
+
+```bash
+xcodebuild -scheme SpeakSel -destination 'platform=macOS' test
+```
